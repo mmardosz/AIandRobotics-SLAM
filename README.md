@@ -15,7 +15,6 @@ The simulation can be represented as follows (analogously for result canvas on t
 
 ![alt text](https://mardosz.com/git/AIandRobotics-SLAM/slam_d2.png)
 
-
 Also, the robot does not change its rotation. It is because, rotating canvas properly would require using additional JavaScript libraries. Therefore, Omega equals 0 degree. Where Alpha (laser) is hardcoded and equals 35 degrees.
 
 For all calculations of landmark's position on the right side of the page, we only use SLAM (based on a robot coordinates and angles). 
