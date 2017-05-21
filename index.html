@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+
+    <title>MMardosz - Example of SLAM</title>
+    <style>
+        canvas {
+            border: 1px dotted black;
+        }
+
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+
+        body {
+            /* Margin bottom by footer height */
+            margin-bottom: 60px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            /* Set the fixed height of the footer here */
+            height: 60px;
+            background-color: #f5f5f5;
+        }
+
+        .container .text-muted {
+            margin: 20px 0;
+        }
+
+        .footer > .container {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        code {
+            font-size: 80%;
+        }
+    </style>
+</head>
+<script type='text/javascript' src='script.js'></script>
+<script>
+    function refresh() {
+        location.reload();
+    }
+</script>
+
+<div class="container">
+
+    <h1>SLAM</h1>
+    <p>Start visualization by clicking START button. Important: Keep in mind flipped Y in java script. </p> To simplify, the
+        robot only moves X + 5 or Y + (5 + 4). All movements are randomized (see arrows). Also, due to complexity of the canvas
+        settings in JavaScript, the rotation of a robot is fixed. Important! We assume one
+        fixed obstacle in shape of a rectangular. We use rectangular shape because we need to
+        simulate input data from laser fixed to the robot. We calculate the distance between laser emitter and the rectangular to
+        simulate the sensor perception (easier to calculate the distance from the landmark).</p>
+    <p>For all calculations of landmark's position, we use only SLAM (based on a robot coordinates). Also, we assume that the
+        robot will never crash with the landmark, therefore it does not bounce back from an object or wall on its way.
+        We assume that the robot's locomotion property is omnidirectional (goes on X and Y axes without spinning).
+    </p>
+    <!--<p>To reload page, click below or <kbd><kbd>ctrl/cmd</kbd> + <kbd>R</kbd></kbd></p>-->
+    <button type="submit" class="btn btn-primary" onclick="startVisualization()">START</button>
+    <button type="submit" class="btn btn-danger" onclick="refresh()">Reload page</button>
+
+</div>
+
+<div class="container">
+
+    <div class="col-md-6">
+
+        <h2>Visualisation:</h2>
+
+        <canvas id="maincanvas" width="300" height="300">
+
+        </canvas>
+        <br/><br/><br/>
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <p><b>Position of a robot: </b><span id="arrow-y"/>
+                <pre>X[w] = <span id="X_r">Hit start button</span></pre>
+                </p>
+            </div>
+
+            <div class="col-md-6">
+
+                <p><b>Position of a robot: </b><span id="arrow-x"/>
+                <pre>Y[w] = <span id="Y_r">Hit start button</span></pre>
+                </p>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <p><b>Laser</b>
+                <pre><span id="laser_alpha">Hit start button</span></pre>
+                </p>
+            </div>
+
+            <div class="col-md-6">
+
+                <p><b>Theta of a robot (not rotated on start)</b>
+                <pre><span id="robot_omega">&Theta; = 0 degrees (hardcoded)</span></pre>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <p><b>Distance (m) from robot to obstacle</b>
+                <pre>m = <span id="m">Hit start button</span></pre>
+                </p>
+            </div>
+
+            <div class="col-md-6">
+
+                <p><b>Coords of a laser touch</b>
+                <pre>X = <span id="laser_tip_X">Hit start button</span></pre>
+                <pre>Y = <span id="laser_tip_Y">Hit start button</span></pre>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <h2>Mapped Results:</h2>
+
+        <canvas id="results" width="300" height="300"></canvas>
+        <br/><br/><br/>
+
+        <p><b>SLAM calculations - obstacle according to the robot:</b></p>
+
+        <pre>X[r] = <span id="coor_of_obstacle_x">Hit start button</span></pre>
+        <pre>Y[r] = <span id="coor_of_obstacle_y">Hit start button</span></pre>
+        <p><i>Using only angles, robot's coords. In other words, without using known data in the JS code. </i></p>
+
+        <p><b>SLAM calculations - world coords:</b></p>
+
+        <pre>X[w] = <span id="coor_world_x">Hit start button</span></pre>
+        <pre>Y[w] = <span id="coor_world_y">Hit start button</span></pre>
+        <p><i>Using only angles, robot's coords. In other words, without using known data in the JS code. </i></p>
+
+    </div>
+</div>
+</div>
+<br/><br/><br/>
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">Maciej M. Mardosz - CS-416-1 AI and Robotics - NEIU Fall 2016</p>
+    </div>
+</footer>
+</body>
+</html>
