@@ -2,7 +2,7 @@
 ##A SLAM Simulation using JavaScript
 Description of JavaScript Simulation:
 
-![alt text](https://mardosz.com/git/AIandRobotics-SLAM/slam002.png)
+![alt text](https://mardosz.com/git/AIandRobotics-SLAM/slam002.png  =250x)
 
 ###Brief Introduction
 This simulation uses SLAM to calculate coordinates of mapped obstacle. Also, it calculates the position of a robot. The model of a laser sensor mimics the data used by a regular laser sensor. Therefore, the landmark is a fixed-size rectangular shape object to speed-up calculations. It is static, and location is hardcoded.
@@ -13,9 +13,12 @@ _Important: the JavaScript canvas coordinate space contains a mirrored Y on its 
 
 The simulation can be represented as follows (analogously for result canvas on the right):
 
+![alt text](https://mardosz.com/git/AIandRobotics-SLAM/slam_d2.png)
+
+
 Also, the robot does not change its rotation. It is because, rotating canvas properly would require using additional JavaScript libraries. Therefore, Omega equals 0 degree. Where Alpha (laser) is hardcoded and equals 35 degrees.
 
-For all calculations of landmark's positon on the right side of the page, we only use SLAM (based on a robot coordinates and angles). 
+For all calculations of landmark's position on the right side of the page, we only use SLAM (based on a robot coordinates and angles). 
 
 Worth mentioning is that we assume that the robot will never crash with the landmark, therefore it does not bounce back from an object on its way. We assume that the robot's locomotion property is omnidirectional - goes on X and Y axes without spinning or changing angle to 90.
 
@@ -27,7 +30,7 @@ You can notice that `(X[w], Y[w])` calculated by the algorithm closely matches t
 
 _Example calculations. Notice that left side matches with SLAM calculations on the right for `X[w]` and `Y[w]`:_
 
-![alt text](http://url/to/img.png)
+![alt text](https://mardosz.com/git/AIandRobotics-SLAM/slam_d3.png)
 
 ###Results
 
@@ -35,6 +38,9 @@ The laser maps the path from the source to the obstacle. Mapped Results displays
 
 The visualization displays calculations for currently mapped obstacle:
 
-![alt text](http://url/to/img.png)
+![alt text](https://mardosz.com/git/AIandRobotics-SLAM/slam_d4.png)
+
 
 The path of the robot will be similar with every execution; however, movements are randomized (with bias to go down). 
+
+![alt text](https://mardosz.com/git/AIandRobotics-SLAM/slam_d5.png)
