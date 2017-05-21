@@ -2,7 +2,7 @@
 ##A SLAM Simulation using JavaScript
 Description of JavaScript Simulation:
 
-![alt text](https://mardosz.com/git/AIandRobotics-SLAM/slam002.png  =250x)
+![alt text](https://mardosz.com/git/AIandRobotics-SLAM/slam002.png)
 
 ###Brief Introduction
 This simulation uses SLAM to calculate coordinates of mapped obstacle. Also, it calculates the position of a robot. The model of a laser sensor mimics the data used by a regular laser sensor. Therefore, the landmark is a fixed-size rectangular shape object to speed-up calculations. It is static, and location is hardcoded.
