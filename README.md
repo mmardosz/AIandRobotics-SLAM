@@ -9,11 +9,11 @@ The following is a visualisation of Simultaneous localization and mapping (SLAM)
 
 _Important: the JavaScript canvas coordinate space contains a mirrored Y on its Cartesian plane as demonstrated below:_
 
-![alt text](https://mardosz.com/git/AIandRobotics-SLAM/slam_d1.png)
+![alt text](https://mardosz.com/git/AIandRobotics-SLAM/slam_d1s.png)
 
 The simulation can be represented as follows (analogously for result canvas on the right):
 
-![alt text](https://mardosz.com/git/AIandRobotics-SLAM/slam_d2.png)
+![alt text](https://mardosz.com/git/AIandRobotics-SLAM/slam_d2s.png)
 
 Also, the robot does not change its rotation. It is because, rotating canvas properly would require using additional JavaScript libraries. Therefore, Omega equals 0 degree. Where Alpha (laser) is hardcoded and equals 35 degrees.
 
