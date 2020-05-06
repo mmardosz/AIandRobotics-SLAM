@@ -35,6 +35,6 @@ The screen is divided into two sections: Visualization and Mapped Results. The f
 The visualization displays calculations for currently mapped obstacle:
 
 ![alt text](https://mardosz.com/git/AIandRobotics-SLAM/slam_d5.png)
-
+ 
 The path of the robot will be similar with every execution; however, movements are randomized (with bias to go down). 
 
